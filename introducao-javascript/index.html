@@ -84,5 +84,48 @@
 
     resultado = divide(12, 6)
     console.log(resultado)        // 2
+
+    // condicionais
+    function retornaSexo(sexo) {
+      // M, F
+      // Masculino, Feminino
+
+      if (sexo === 'M') {
+        return 'Masculino'
+      } else if (sexo === 'F') {
+        return 'Feminino'
+      } else {
+        return 'Outro'
+      }
+    }
+
+    resultado = retornaSexo('M')
+    console.log(resultado)        // Masculino
+
+    resultado = retornaSexo('F')
+    console.log(resultado)        // Feminino
+
+    resultado = retornaSexo('asjsd')
+    console.log(resultado)        // Outro
+
+    function retornaSexoSwitch(sexo) {
+      switch(sexo) {
+        case 'M':
+          return 'Masculino'
+        case 'F':
+          return 'Feminino'
+        default:
+          return 'Outro'
+      }
+    }
+
+    resultado = retornaSexoSwitch('M')
+    console.log(resultado)        // Masculino
+
+    resultado = retornaSexoSwitch('F')
+    console.log(resultado)        // Feminino
+
+    resultado = retornaSexoSwitch('dlk')
+    console.log(resultado)        // Outro
   </script>
 </html>
