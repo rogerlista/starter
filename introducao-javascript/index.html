@@ -65,5 +65,24 @@
     resposta = 3
     resposta *= y
     console.log(resposta)         // 15
+
+    // funções
+    function soma(numero1, numero2) {
+      let resultado = numero1 + numero2     // só existe enquanto a função é executada
+
+      return resultado
+    }
+
+    let resultado = soma(8, 3)    // não é a mesma que foi declarada dentro da função
+    console.log(resultado)        // 11
+
+    function divide(numero1, numero2) {
+      let resultado = numero1 / numero2
+
+      return resultado
+    }
+
+    resultado = divide(12, 6)
+    console.log(resultado)        // 2
   </script>
 </html>
