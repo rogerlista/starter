@@ -127,5 +127,49 @@
 
     resultado = retornaSexoSwitch('dlk')
     console.log(resultado)        // Outro
+
+    // operadores lógicos
+    // AND, OR, NOT
+
+    let sexo = 'M'
+    let idade_pessoa = 23
+
+    if (sexo === 'M' && idade_pessoa >= 18) {
+      console.log('OK')           // OK
+    }
+
+    sexo = 'F'
+
+    if (sexo === 'M' || idade_pessoa >= 18) {
+      console.log('OK')           // OK
+    }
+
+    idade_pessoa = 10
+
+    if (sexo === 'M' || idade_pessoa >= 18) {
+      console.log('OK')           // não entra no if
+    }
+
+    sexo = 'F'
+
+    if (sexo !== 'M') {
+      console.log('OK')           // OK
+    }
+
+    sexo = 'F'
+    let masculino
+
+    if (sexo === 'M') {
+      masculino = true
+    } else {
+      masculino = false
+    }
+
+    console.log(masculino)        // false
+
+    sexo = 'F'
+    masculino = sexo === 'M'
+
+    console.log(masculino)        // false
   </script>
 </html>
