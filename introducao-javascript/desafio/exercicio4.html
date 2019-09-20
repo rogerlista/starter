@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Desafio - exercício 4 introdução javascript</title>
+  </head>
+  <body>
+
+    <script>
+      function experiencia(anos) {
+        if (anos < 2) {
+          return 'Iniciante'
+        } else if (anos < 4) {
+          return 'Intermediário'
+        } else if (anos < 7) {
+          return 'Avançado'
+        } else {
+          return 'Jedi Master'
+        }
+      }
+
+      function experiencia1(anos) {
+        switch(anos) {
+          case 0:
+          case 1:
+            return 'Iniciante'
+          case 2:
+          case 3:
+            return 'Intermediário'
+          case 4:
+          case 5:
+          case 6:
+            return 'Avançado'
+          default:
+            return 'Jedi Master'
+        }
+      }
+
+      let anosEstudo = 7
+      console.log(experiencia(anosEstudo))
+      console.log(experiencia1(anosEstudo))
+    </script>
+  </body>
+</html>
