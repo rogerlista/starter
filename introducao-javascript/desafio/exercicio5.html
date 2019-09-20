@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Desafio - exercício 5 introdução javascript</title>
+  </head>
+  <body>
+
+    <script>
+      let usuarios = [
+        {
+          nome: 'Juca',
+          habilidades: ['Javascript', 'ReactJS', 'Redux']
+        },
+        {
+          nome: 'Gabriel',
+          habilidades: ['VueJS', 'Ruby on Rails', 'Elixir']
+        }
+      ]
+
+      function habilidades(usuarios) {
+        for (let usuario of usuarios) {
+          console.log(`O ${usuario.nome} possui as habilidades: ${usuario.habilidades.join(', ')}.`)
+        }
+      }
+
+      function habilidades1(usuarios) {
+        usuarios.forEach(usuario => {
+          console.log(`O ${usuario.nome} possui as habilidades: ${usuario.habilidades.join(', ')}.`)
+        })
+      }
+
+      function habilidades2(usuarios) {
+        usuarios.forEach(({nome, habilidades}) => {
+          console.log(`O ${nome} possui as habilidades: ${habilidades.join(', ')}.`)
+        })
+      }
+
+      habilidades(usuarios)
+      habilidades1(usuarios)
+      habilidades2(usuarios)
+    </script>
+  </body>
+</html>
