@@ -14,8 +14,16 @@ function renderTodos() {
   for (let todo of todos) {
     let todoElement = document.createElement('li')
     let textElement = document.createTextNode(todo)
+    let linkElement = document.createElement('a')
+    let textLinkElement = document.createTextNode('Excluir')
+    let pos = todos.indexOf(todo)
 
+    linkElement.setAttribute('href', '#')
+    linkElement.setAttribute('onclick', `deleteTodo(${pos})`)
+
+    linkElement.appendChild(textLinkElement)
     todoElement.appendChild(textElement)
+    todoElement.appendChild(linkElement)
     listElement.appendChild(todoElement)
   }
 }
@@ -31,3 +39,8 @@ function addTodo() {
 }
 
 buttonElement.onclick = addTodo
+
+function deleteTodo(pos) {
+  todos.splice(pos, 1)
+  renderTodos()
+}
