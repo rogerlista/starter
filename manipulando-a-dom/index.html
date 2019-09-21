@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Eventos inline</title>
+  </head>
+  <body>
+    <div id="app">
+      <input onkeypress="mostraAlerta()"/>
+      <button onclick="clickButton()">Pressione</button>
+      <button onmousemove="mouseMoveButton()">Passe o mouse</button>
+    </div>
+
+    <script>
+      function clickButton() {
+        alert('O botão foi pressionado')
+      }
+
+      function mouseMoveButton() {
+        alert('O mouse passou sobre o botão')
+      }
+
+      function mostraAlerta() {
+        alert('Uma tecla foi pressionada e solta')
+      }
+    </script>
+  </body>
+</html>
