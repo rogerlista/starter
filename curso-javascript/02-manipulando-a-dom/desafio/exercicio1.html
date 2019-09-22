@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Desafio - exercício 1</title>
+  </head>
+  <body>
+    <div id="app">
+      <button>Adiciona novo quadrado</button>
+    </div>
+
+    <script>
+      let containerElement = document.querySelector('#app')
+      let buttonElement = document.querySelector('#app button')
+
+      buttonElement.onclick = function() {
+        let quadradoElement = document.createElement('div')
+
+        quadradoElement.style.height = '100px'
+        quadradoElement.style.width = '100px'
+        quadradoElement.style.background = '#f00'
+        quadradoElement.style.margin = '5px'
+
+        containerElement.appendChild(quadradoElement)
+      }
+    </script>
+  </body>
+</html>
