@@ -6,6 +6,10 @@ function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) ===
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
+function _get(target, property, receiver) { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get; } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(receiver); } return desc.value; }; } return _get(target, property, receiver || target); }
+
+function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
+
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
@@ -44,10 +48,28 @@ function (_List) {
   _inherits(TodoList, _List);
 
   function TodoList() {
+    var _this;
+
     _classCallCheck(this, TodoList);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(TodoList).call(this));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(TodoList).call(this));
+    _this.usuario = 'Juca';
+    return _this;
   }
+
+  _createClass(TodoList, [{
+    key: "mostraUsuario",
+    value: function mostraUsuario() {
+      console.log(this.usuario);
+    }
+  }, {
+    key: "add",
+    value: function add(data) {
+      _get(_getPrototypeOf(TodoList.prototype), "add", this).call(this, data);
+
+      console.log('lista de todos', this.data);
+    }
+  }]);
 
   return TodoList;
 }(List);
@@ -57,3 +79,5 @@ var minhaLista = new TodoList();
 document.getElementById('novo-todo').onclick = function () {
   minhaLista.add('Novo todo utilizando herança');
 };
+
+minhaLista.mostraUsuario();

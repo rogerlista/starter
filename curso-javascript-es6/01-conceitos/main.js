@@ -11,6 +11,17 @@ class List {
 class TodoList extends List {
   constructor() {
     super()
+
+    this.usuario = 'Juca'
+  }
+
+  mostraUsuario() {
+    console.log(this.usuario)
+  }
+
+  add(data) {
+    super.add(data)
+    console.log('lista de todos', this.data)
   }
 }
 
@@ -19,3 +30,5 @@ let minhaLista = new TodoList()
 document.getElementById('novo-todo').onclick = function() {
   minhaLista.add('Novo todo utilizando herança')
 }
+
+minhaLista.mostraUsuario()
