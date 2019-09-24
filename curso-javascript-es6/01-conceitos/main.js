@@ -32,3 +32,11 @@ document.getElementById('novo-todo').onclick = function() {
 }
 
 minhaLista.mostraUsuario()
+
+class Matematica {
+  static soma(a, b) {
+    return a + b
+  }
+}
+
+console.log(Matematica.soma(4, 8))

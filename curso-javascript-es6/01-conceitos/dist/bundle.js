@@ -81,3 +81,22 @@ document.getElementById('novo-todo').onclick = function () {
 };
 
 minhaLista.mostraUsuario();
+
+var Matematica =
+/*#__PURE__*/
+function () {
+  function Matematica() {
+    _classCallCheck(this, Matematica);
+  }
+
+  _createClass(Matematica, null, [{
+    key: "soma",
+    value: function soma(a, b) {
+      return a + b;
+    }
+  }]);
+
+  return Matematica;
+}();
+
+console.log(Matematica.soma(4, 8));
