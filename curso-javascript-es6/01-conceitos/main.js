@@ -1,25 +1,35 @@
-const a = 3
+const arr = [1, 3, 4, 5, 8, 10]
 
-// a = 6 // constantes não podem receber novos valores - read-only
+// retorna um novo array fazendo alguma coisa com os elementos do array atual.
+const newArr = arr.map(function(item, index) {
+  return item + index
+})
 
-const usuario = { nome: 'Juca' }
+console.log(newArr) // [1, 4, 6, 8, 12, 15]
 
-console.log(usuario) // nome: 'Juca'
-usuario.nome = 'Teobaldo' // mutar/mutando uma constante
-console.log(usuario) // nome: 'Teobaldo'
+// retorna um único valor fazendo alguma coisa com os elementos do array atual.
+const sum = arr.reduce(function(total, next) {
+  return total + next
+}, 0) // não informando o valor inicial de total ele será 0 por padrão.
 
-// escopos
+console.log(sum) // 31
 
-function teste(x) {
-  let y = 2
-  let z = 4
+// retorna um novo array retirando os elementos que forem falsos de acordo com a condição declarada.
+const filter = arr.filter(function(item) {
+  return item % 2 === 0
+})
 
-  if (x > 5) {
-    let z = 8 // nova abertura de chaves novo escopo, nova variável z sobrepõem a variável z externa.
-    console.log(x, y, z)
-  }
-}
+console.log(filter) // [4, 8, 10]
 
-// console.log(y) // a variável y só pode ser acessada dentro/escopo da função.
+// retorna o elemento se encontrar ou indefined.
+const find = arr.find(function(item) {
+  return item === 4
+})
 
-teste(10) // 10 2 8
+console.log(find) // 4
+
+const notFind = arr.find(function(item) {
+  return item === 2
+})
+
+console.log(notFind) // indefined

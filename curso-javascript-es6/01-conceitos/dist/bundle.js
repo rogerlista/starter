@@ -1,27 +1,32 @@
 "use strict";
 
-var a = 3; // a = 6 // constantes não podem receber novos valores - read-only
+var arr = [1, 3, 4, 5, 8, 10]; // retorna um novo array fazendo alguma coisa com os elementos do array atual.
 
-var usuario = {
-  nome: 'Juca'
-};
-console.log(usuario); // nome: 'Juca'
+var newArr = arr.map(function (item, index) {
+  return item + index;
+});
+console.log(newArr); // [1, 4, 6, 8, 12, 15]
+// retorna um único valor fazendo alguma coisa com os elementos do array atual.
 
-usuario.nome = 'Teobaldo'; // mutar/mutando uma constante
+var sum = arr.reduce(function (total, next) {
+  return total + next;
+}, 0); // não informando o valor inicial de total ele será 0 por padrão.
 
-console.log(usuario); // nome: 'Teobaldo'
-// escopos
+console.log(sum); // 31
+// retorna um novo array retirando os elementos que forem falsos de acordo com a condição declarada.
 
-function teste(x) {
-  var y = 2;
-  var z = 4;
+var filter = arr.filter(function (item) {
+  return item % 2 === 0;
+});
+console.log(filter); // [4, 8, 10]
+// retorna o elemento se encontrar ou indefined.
 
-  if (x > 5) {
-    var _z = 8; // nova abertura de chaves novo escopo, nova variável z sobrepõem a variável z externa.
+var find = arr.find(function (item) {
+  return item === 4;
+});
+console.log(find); // 4
 
-    console.log(x, y, _z);
-  }
-} // console.log(y) // a variável y só pode ser acessada dentro/escopo da função.
-
-
-teste(10); // 10 2 8
+var notFind = arr.find(function (item) {
+  return item === 2;
+});
+console.log(notFind); // indefined
