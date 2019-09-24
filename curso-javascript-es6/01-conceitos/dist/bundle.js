@@ -1,29 +1,40 @@
 "use strict";
 
-function soma(a, b) {
-  return a + b;
-}
-
-console.log(soma(1)); // NaN
-
-console.log(soma()); // NaN
-
-function somaComValoresPadrao() {
-  var a = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 3;
-  var b = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 6;
-  return a + b;
-}
-
-console.log(somaComValoresPadrao(1)); // 7
-
-console.log(somaComValoresPadrao()); // 9
-
-var somaArrowFunction = function somaArrowFunction() {
-  var a = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 3;
-  var b = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 6;
-  return a + b;
+var usuario = {
+  nome: 'Juca',
+  idade: 23,
+  endereco: {
+    cidade: 'Rio de Janeiro',
+    estado: 'RJ'
+  }
 };
+console.log(usuario); // {nome: 'Juca', idade: 23, endereco: {cidade: 'Rio de Janeiro, estado: 'RJ'}}
 
-console.log(somaArrowFunction(1)); // 7
+var nomeUsuario = usuario.nome;
+var idadeUsuario = usuario.idade;
+var cidadeUsuario = usuario.endereco.cidade;
+var estadoUsuario = usuario.endereco.estado;
+console.log(nomeUsuario, 'idade', idadeUsuario, 'cidade', cidadeUsuario, 'estado', estadoUsuario); // Juca idade 23 cidade Rio de Janeiro estado RJ
 
-console.log(somaArrowFunction()); // 9
+var nome = usuario.nome,
+    idade = usuario.idade,
+    _usuario$endereco = usuario.endereco,
+    cidade = _usuario$endereco.cidade,
+    estado = _usuario$endereco.estado;
+console.log(nome, 'idade', idade, 'cidade', cidade, 'estado', estado); // Juca idade 23 cidade Rio de Janeiro estado RJ
+
+function mostraNome(_ref) {
+  var nome = _ref.nome;
+  console.log(nome);
+}
+
+function mostraEndereco(_ref2) {
+  var _ref2$endereco = _ref2.endereco,
+      cidade = _ref2$endereco.cidade,
+      estado = _ref2$endereco.estado;
+  console.log('Cidade', cidade, '-', estado);
+}
+
+mostraNome(usuario); // Juca
+
+mostraEndereco(usuario); // Cidade Rio de Janeiro - RJ

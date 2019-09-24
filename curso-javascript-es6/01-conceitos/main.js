@@ -1,18 +1,44 @@
-function soma(a, b) {
-  return a + b
+const usuario = {
+  nome: 'Juca',
+  idade: 23,
+  endereco: {
+    cidade: 'Rio de Janeiro',
+    estado: 'RJ'
+  }
 }
 
-console.log(soma(1)) // NaN
-console.log(soma()) // NaN
+console.log(usuario) // {nome: 'Juca', idade: 23, endereco: {cidade: 'Rio de Janeiro, estado: 'RJ'}}
 
-function somaComValoresPadrao(a = 3, b = 6) {
-  return a + b
+const nomeUsuario = usuario.nome
+const idadeUsuario = usuario.idade
+const cidadeUsuario = usuario.endereco.cidade
+const estadoUsuario = usuario.endereco.estado
+
+console.log(
+  nomeUsuario,
+  'idade',
+  idadeUsuario,
+  'cidade',
+  cidadeUsuario,
+  'estado',
+  estadoUsuario
+) // Juca idade 23 cidade Rio de Janeiro estado RJ
+
+const {
+  nome,
+  idade,
+  endereco: { cidade, estado }
+} = usuario
+
+console.log(nome, 'idade', idade, 'cidade', cidade, 'estado', estado) // Juca idade 23 cidade Rio de Janeiro estado RJ
+
+function mostraNome({ nome }) {
+  console.log(nome)
 }
 
-console.log(somaComValoresPadrao(1)) // 7
-console.log(somaComValoresPadrao()) // 9
+function mostraEndereco({ endereco: { cidade, estado } }) {
+  console.log('Cidade', cidade, '-', estado)
+}
 
-const somaArrowFunction = (a = 3, b = 6) => a + b
-
-console.log(somaArrowFunction(1)) // 7
-console.log(somaArrowFunction()) // 9
+mostraNome(usuario) // Juca
+mostraEndereco(usuario) // Cidade Rio de Janeiro - RJ
