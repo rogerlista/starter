@@ -1,16 +1,21 @@
-class TodoList {
+class List {
   constructor() {
-    this.todos = []
+    this.data = []
   }
 
-  addTodo() {
-    this.todos.push('Novo todo')
-    console.log(this.todos)
+  add(data) {
+    this.data.push(data)
+    console.log(this.data)
+  }
+}
+class TodoList extends List {
+  constructor() {
+    super()
   }
 }
 
 let minhaLista = new TodoList()
 
 document.getElementById('novo-todo').onclick = function() {
-  minhaLista.addTodo()
+  minhaLista.add('Novo todo utilizando herança')
 }
