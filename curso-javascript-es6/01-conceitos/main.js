@@ -1,42 +1,25 @@
-class List {
-  constructor() {
-    this.data = []
-  }
+const a = 3
 
-  add(data) {
-    this.data.push(data)
-    console.log(this.data)
-  }
-}
-class TodoList extends List {
-  constructor() {
-    super()
+// a = 6 // constantes não podem receber novos valores - read-only
 
-    this.usuario = 'Juca'
-  }
+const usuario = { nome: 'Juca' }
 
-  mostraUsuario() {
-    console.log(this.usuario)
-  }
+console.log(usuario) // nome: 'Juca'
+usuario.nome = 'Teobaldo' // mutar/mutando uma constante
+console.log(usuario) // nome: 'Teobaldo'
 
-  add(data) {
-    super.add(data)
-    console.log('lista de todos', this.data)
+// escopos
+
+function teste(x) {
+  let y = 2
+  let z = 4
+
+  if (x > 5) {
+    let z = 8 // nova abertura de chaves novo escopo, nova variável z sobrepõem a variável z externa.
+    console.log(x, y, z)
   }
 }
 
-let minhaLista = new TodoList()
+// console.log(y) // a variável y só pode ser acessada dentro/escopo da função.
 
-document.getElementById('novo-todo').onclick = function() {
-  minhaLista.add('Novo todo utilizando herança')
-}
-
-minhaLista.mostraUsuario()
-
-class Matematica {
-  static soma(a, b) {
-    return a + b
-  }
-}
-
-console.log(Matematica.soma(4, 8))
+teste(10) // 10 2 8
