@@ -1,44 +1,37 @@
 const usuario = {
   nome: 'Juca',
-  idade: 23,
-  endereco: {
-    cidade: 'Rio de Janeiro',
-    estado: 'RJ'
-  }
+  idade: 25,
+  empresa: 'Rocketseat'
+}
+const { nome, ...resto } = usuario
+
+console.log(nome, resto) // Juca, { idade: 25, empresa: 'Rocketseat' }
+
+const arr = [1, 2, 3, 4]
+const [a, b, ...c] = arr
+
+console.log(a, b, c) // 1, 2, [3, 4]
+
+function soma(a, b) {
+  return a + b
 }
 
-console.log(usuario) // {nome: 'Juca', idade: 23, endereco: {cidade: 'Rio de Janeiro, estado: 'RJ'}}
+console.log(soma(2, 3)) // 5
 
-const nomeUsuario = usuario.nome
-const idadeUsuario = usuario.idade
-const cidadeUsuario = usuario.endereco.cidade
-const estadoUsuario = usuario.endereco.estado
-
-console.log(
-  nomeUsuario,
-  'idade',
-  idadeUsuario,
-  'cidade',
-  cidadeUsuario,
-  'estado',
-  estadoUsuario
-) // Juca idade 23 cidade Rio de Janeiro estado RJ
-
-const {
-  nome,
-  idade,
-  endereco: { cidade, estado }
-} = usuario
-
-console.log(nome, 'idade', idade, 'cidade', cidade, 'estado', estado) // Juca idade 23 cidade Rio de Janeiro estado RJ
-
-function mostraNome({ nome }) {
-  console.log(nome)
+function somaParams(...params) {
+  return params
 }
 
-function mostraEndereco({ endereco: { cidade, estado } }) {
-  console.log('Cidade', cidade, '-', estado)
+console.log(somaParams(1, 2, 3, 4, 5)) // [1, 2, 3, 4, 5]
+
+function somaParamsReduce(...params) {
+  return params.reduce((total, next) => total + next)
 }
 
-mostraNome(usuario) // Juca
-mostraEndereco(usuario) // Cidade Rio de Janeiro - RJ
+console.log(somaParamsReduce(1, 2, 3, 4, 5)) // 15
+
+function somaComParams(a, b, ...params) {
+  console.log(a, b, params)
+}
+
+somaComParams(1, 2, 3, 4, 5) // 1, 2, [3, 4, 5]
