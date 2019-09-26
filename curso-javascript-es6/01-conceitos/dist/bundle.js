@@ -90,11 +90,11 @@
 /*!********************!*\
   !*** ./funcoes.js ***!
   \********************/
-/*! exports provided: soma */
+/*! exports provided: soma, sub, divide, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"soma\", function() { return soma; });\nfunction soma(a, b) {\n  return a + b;\n}\n\n//# sourceURL=webpack:///./funcoes.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"soma\", function() { return soma; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"sub\", function() { return sub; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"divide\", function() { return divide; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return multi; });\nfunction soma(a, b) {\n  return a + b;\n}\nfunction sub(a, b) {\n  return a - b;\n}\nfunction divide(a, b) {\n  return a / b;\n} // so pode ter um export default por arquivo\n\nfunction multi(a, b) {\n  return a * b;\n}\n\n//# sourceURL=webpack:///./funcoes.js?");
 
 /***/ }),
 
@@ -106,7 +106,19 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _funcoes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./funcoes */ \"./funcoes.js\");\n\nconsole.log(Object(_funcoes__WEBPACK_IMPORTED_MODULE_0__[\"soma\"])(2, 6));\n\n//# sourceURL=webpack:///./main.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _funcoes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./funcoes */ \"./funcoes.js\");\n/* harmony import */ var _soma__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./soma */ \"./soma.js\");\n // usando export somente só se pode importar entre chaves e com o mesmo nome exportado.\n\n // usando export e dando outro nome as importações\n\n // importando de uma arquivo que contem export default e export somente.\n\n // importando todas as funcões para o objeto funcoes.\n\n // usando export default.\n\n // usando export default pode-se dar qualquer nome a importação.\n\nconsole.log(Object(_funcoes__WEBPACK_IMPORTED_MODULE_0__[\"soma\"])(2, 6)); // 8\n\nconsole.log(Object(_funcoes__WEBPACK_IMPORTED_MODULE_0__[\"sub\"])(5, 2)); // 3\n\nconsole.log(Object(_funcoes__WEBPACK_IMPORTED_MODULE_0__[\"soma\"])(4, 5)); // 9\n\nconsole.log(Object(_funcoes__WEBPACK_IMPORTED_MODULE_0__[\"sub\"])(8, 7)); // 1\n\nconsole.log(Object(_soma__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(10, 2)); // 12\n\nconsole.log(Object(_soma__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(1, 3)); // 4\n\nconsole.log(Object(_funcoes__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(2, 3)); // 6\n\nconsole.log(Object(_funcoes__WEBPACK_IMPORTED_MODULE_0__[\"divide\"])(5, 2)); // 2.5\n\nconsole.log(_funcoes__WEBPACK_IMPORTED_MODULE_0__[\"soma\"](10, 10)); // 20\n\nconsole.log(_funcoes__WEBPACK_IMPORTED_MODULE_0__[\"sub\"](20, 5)); // 15\n\nconsole.log(_funcoes__WEBPACK_IMPORTED_MODULE_0__[\"divide\"](10, 5)); // 2\n// console.log(funcoes.multi(10, 3)) // multi não pode ser exportada dessa maneira somente como default.\n\nconsole.log(_funcoes__WEBPACK_IMPORTED_MODULE_0__[\"default\"](10, 3)); // 30 - multi só pode ser chamada como default.\n\n//# sourceURL=webpack:///./main.js?");
+
+/***/ }),
+
+/***/ "./soma.js":
+/*!*****************!*\
+  !*** ./soma.js ***!
+  \*****************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return soma2; });\nfunction soma2(a, b) {\n  return a + b;\n}\n\n//# sourceURL=webpack:///./soma.js?");
 
 /***/ })
 
