@@ -1,59 +1,18 @@
-function minhaPromise() {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve('OK')
-    }, 2000)
-  })
+import axios from 'axios'
+
+class Api {
+  static async getUserInfo(username) {
+    try {
+      const response = await axios.get(
+        `https://api.github.com/users/${username}`
+      )
+
+      console.log(response)
+    } catch (err) {
+      console.log('Erro na API')
+    }
+  }
 }
 
-minhaPromise()
-  .then(response => console.log(response)) // OK
-  .catch(err => console.log(err))
-
-async function executaPromise() {
-  const response = await minhaPromise()
-  console.log(response)
-}
-
-executaPromise() // OK
-
-async function executaPromise1() {
-  console.log('Async', await minhaPromise())
-  console.log('Async', await minhaPromise())
-  console.log('Async', await minhaPromise())
-  console.log('Async', await minhaPromise())
-  console.log('Async', await minhaPromise())
-}
-
-executaPromise1() // a cada 2 segundos será executada cada uma das linhas da função exibindo OK.
-
-// o mesmo exemplo que o de cima mas utilizando then
-minhaPromise().then(res => {
-  console.log('then', res)
-
-  minhaPromise().then(res => {
-    console.log('then', res)
-
-    minhaPromise().then(res => {
-      console.log('then', res)
-
-      minhaPromise().then(res => {
-        console.log('then', res)
-
-        minhaPromise().then(res => {
-          console.log('then', res)
-        })
-      })
-    })
-  })
-})
-
-const executaPromiseArrow = async () => {
-  console.log('Arrow', await minhaPromise())
-  console.log('Arrow', await minhaPromise())
-  console.log('Arrow', await minhaPromise())
-  console.log('Arrow', await minhaPromise())
-  console.log('Arrow', await minhaPromise())
-}
-
-executaPromiseArrow()
+Api.getUserInfo('rogerlista')
+Api.getUserInfo('djdkfkdf')
