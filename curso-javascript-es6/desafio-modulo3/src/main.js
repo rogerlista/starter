@@ -46,7 +46,7 @@ function getUserFromGithub(user) {
 getUserFromGithub('rogerlista')
 getUserFromGithub('rogerlistadkfjdsklfjdkls')
 
-async function getUserFromGithubWait(user) {
+async function getUserFromGithubAwait(user) {
   try {
     const response = await axios.get(`https://api.github.com/users/${user}`)
     console.log(response.data)
@@ -55,5 +55,35 @@ async function getUserFromGithubWait(user) {
   }
 }
 
-getUserFromGithubWait('rogerlista')
-getUserFromGithubWait('rogerlistadkjfkdlsfj')
+getUserFromGithubAwait('rogerlista')
+getUserFromGithubAwait('rogerlistadkjfkdlsfj')
+
+class Github {
+  static getRepositories(repo) {
+    axios
+      .get(`https://api.github.com/repos/${repo}`)
+      .then(response => {
+        console.log(response.data)
+      })
+      .catch(err => {
+        console.log('Repositório não existe.')
+      })
+  }
+}
+
+Github.getRepositories('rogerlista/eventex')
+Github.getRepositories('rogerlista/kalfjadfd;l')
+
+class GithubAwait {
+  static async getRepositories(repo) {
+    try {
+      const response = await axios.get(`https://api.github.com/repos/${repo}`)
+      console.log(response.data)
+    } catch (err) {
+      console.log('Repositório não localizado.')
+    }
+  }
+}
+
+GithubAwait.getRepositories('rogerlista/starter')
+GithubAwait.getRepositories('rogerlista/starterdfkjsakl')
