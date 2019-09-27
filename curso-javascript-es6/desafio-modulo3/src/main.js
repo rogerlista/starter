@@ -87,3 +87,29 @@ class GithubAwait {
 
 GithubAwait.getRepositories('rogerlista/starter')
 GithubAwait.getRepositories('rogerlista/starterdfkjsakl')
+
+const buscaUsuario = usuario => {
+  axios
+    .get(`https://api.github.com/users/${usuario}`)
+    .then(response => {
+      console.log('Usuário buscado', response.data)
+    })
+    .catch(err => {
+      console.log('Usuário não existe')
+    })
+}
+
+buscaUsuario('rogerlista')
+buscaUsuario('rogeriiiiiiiiiill')
+
+const buscaUsuarioAwait = async usuario => {
+  try {
+    const response = await axios.get(`https://api.github.com/users/${usuario}`)
+    console.log('Usuário buscado await', response.data)
+  } catch (err) {
+    console.log('Usuário não localizado.')
+  }
+}
+
+buscaUsuarioAwait('rogerlista')
+buscaUsuarioAwait('rogerdkfjdskafdskfl')
