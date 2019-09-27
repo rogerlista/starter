@@ -3,8 +3,73 @@
   <head>
     <meta charset="utf-8" />
     <title>Aplicação com ES6+</title>
+
+    <style>
+      body {
+        font-family: sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        background: #edf2f7;
+      }
+
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      ul li {
+        display: flex;
+        margin-top: 20px;
+      }
+
+      ul div {
+        flex-grow: 1;
+      }
+
+      img {
+        width: 80px;
+        margin: 0 10px;
+      }
+
+      strong {
+        font-size: 20px;
+      }
+
+      p {
+        margin: 5px 0;
+      }
+    </style>
   </head>
   <body>
+    <form id="repo-form">
+      <input type="text" name="repository" />
+      <button type="submit">Adicionar</button>
+    </form>
+
+    <ul id="repo-list">
+      <li>
+        <img src="https://avatars0.githubusercontent.com/u/28929274?v=4" />
+        <div>
+          <strong>rocketseat.com.br</strong>
+          <p>Tire a sua ideia do papel e dê vida à sua startup.</p>
+          <a target="_blank" href="http://github.com/rocketseat/unform"
+            >Acessar</a
+          >
+        </div>
+      </li>
+      <li>
+        <img src="https://avatars0.githubusercontent.com/u/28929274?v=4" />
+        <div>
+          <strong>rocketseat.com.br</strong>
+          <p>Tire a sua ideia do papel e dê vida à sua startup.</p>
+          <a target="_blank" href="http://github.com/rocketseat/unform"
+            >Acessar</a
+          >
+        </div>
+      </li>
+    </ul>
+
     <script src="./bundle.js"></script>
   </body>
 </html>
