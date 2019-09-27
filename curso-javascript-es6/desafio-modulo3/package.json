@@ -2,5 +2,15 @@
   "name": "desafio-modulo3",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "dev": "babel -w ./src/main.js -o ./public/bundle.js"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.6.2",
+    "@babel/core": "^7.6.2",
+    "@babel/plugin-transform-async-to-generator": "^7.5.0",
+    "@babel/polyfill": "^7.6.0",
+    "@babel/preset-env": "^7.6.2"
+  }
 }
