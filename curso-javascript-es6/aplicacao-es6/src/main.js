@@ -14,6 +14,18 @@ class App {
     this.formEl.onsubmit = event => this.addRepository(event)
   }
 
+  setLoading(loading = true) {
+    if (loading) {
+      const divEl = document.createElement('div')
+      divEl.setAttribute('id', 'loading')
+      divEl.appendChild(document.createTextNode('Carregando...'))
+
+      this.formEl.appendChild(divEl)
+    } else {
+      document.getElementById('loading').remove()
+    }
+  }
+
   async addRepository(event) {
     event.preventDefault()
 
@@ -23,25 +35,33 @@ class App {
       return
     }
 
-    const response = await api.get(`/repos/${repoInput}`)
+    this.setLoading()
 
-    const {
-      name,
-      description,
-      html_url,
-      owner: { avatar_url }
-    } = response.data
+    try {
+      const response = await api.get(`/repos/${repoInput}`)
 
-    const repository = {
-      name,
-      description,
-      avatar_url,
-      html_url
+      const {
+        name,
+        description,
+        html_url,
+        owner: { avatar_url }
+      } = response.data
+
+      const repository = {
+        name,
+        description,
+        avatar_url,
+        html_url
+      }
+
+      this.repositories.push(repository)
+      this.inputEl.value = ''
+      this.render()
+    } catch (err) {
+      alert('Repositório não foi encontrado.')
     }
 
-    this.repositories.push(repository)
-    this.inputEl.value = ''
-    this.render()
+    this.setLoading(false)
   }
 
   render() {
