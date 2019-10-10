@@ -5,17 +5,28 @@ import api from '../services/api';
 
 function Main() {
   const [count, setCount] = useState(0);
-  const [docs, setDocs] = useState([]);
+  const [documents, setDocuments] = useState([]);
+  const [productInfo, setProductInfo] = useState('');
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     loadProducts();
   }, []);
 
-  async function loadProducts() {
-    const response = await api.get('/products');
-    const {docs} = response.data;
+  async function loadProducts(page = 1) {
+    const response = await api.get(`/products?page=${page}`);
+    const {docs, ...productInfo} = response.data;
 
-    setDocs(docs);
+    setDocuments([...documents, ...docs]);
+    setProductInfo(productInfo);
+    setPage(page);
+  }
+
+  function loadMore() {
+    if (page === productInfo.pages) return;
+
+    const pageNumber = page + 1;
+    loadProducts(pageNumber);
   }
 
   function renderItem({item}) {
@@ -35,9 +46,11 @@ function Main() {
     <View style={styles.container}>
       <FlatList
         contentContainerStyle={styles.list}
-        data={docs}
+        data={documents}
         keyExtractor={item => item._id}
         renderItem={renderItem}
+        onEndReached={loadMore}
+        onEndReachedThreshold={0.1}
       />
     </View>
   );
