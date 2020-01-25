@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exercício 04 Javascript</title>
+
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <script>
+      function experiencia(anos) {
+        switch (anos) {
+          case 0:
+          case 1:
+            return "Iniciante";
+          case 2:
+          case 3:
+            return "Intermediário";
+          case 4:
+          case 5:
+          case 6:
+            return "Avançado";
+          default:
+            return "Jedi Master";
+        }
+      }
+
+      console.log(experiencia(0)); // Iniciante
+      console.log(experiencia(1)); // Iniciante
+      console.log(experiencia(2)); // Intermediário
+      console.log(experiencia(3)); // Intermediário
+      console.log(experiencia(4)); // Avançado
+      console.log(experiencia(5)); // Avançado
+      console.log(experiencia(6)); // Avançado
+      console.log(experiencia(7)); // Jedi Master
+      console.log(experiencia(77)); // Jedi Master
+    </script>
+  </body>
+</html>
