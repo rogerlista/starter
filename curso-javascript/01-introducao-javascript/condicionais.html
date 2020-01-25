@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Condicionais em Javascript</title>
+  </head>
+
+  <body>
+    <script>
+      function sexo(sexo) {
+        if (sexo === "M") {
+          return "Masculino";
+        } else if (sexo === "F") {
+          return "Feminino";
+        } else {
+          return "Outro";
+        }
+      }
+
+      console.log("Sexo", sexo("M")); // Masculino
+      console.log("Sexo", sexo("F")); // Feminino
+      console.log("Sexo", sexo("?")); // Outro
+
+      function cidade(uf) {
+        switch (uf) {
+          case "SP":
+            return "São Paulo";
+          case "RJ":
+            return "Rio de Janeiro";
+          case "MG":
+            return "Minas Gerais";
+          default:
+            return "Inexistente";
+        }
+      }
+
+      console.log("Cidade", cidade("SP")); // São Paulo
+      console.log("Cidade", cidade("RJ")); // Rio de Janeiro
+      console.log("Cidade", cidade("MG")); // Minas Gerais
+      console.log("Cidade", cidade("??")); // Inexistente
+    </script>
+  </body>
+</html>
