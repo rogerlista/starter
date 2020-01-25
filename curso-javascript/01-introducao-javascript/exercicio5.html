@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exercício 05 Javascript</title>
+
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <script>
+      const usuarios = [
+        {
+          nome: "Juca",
+          habilidades: ["Javascript", "ReactJS", "Redux"]
+        },
+
+        {
+          nome: "Teobaldo",
+          habilidades: ["VueJS", "Ruby on Rails", "Elixir"]
+        }
+      ];
+
+      for (let usuario of usuarios) {
+        const resposta = `O ${
+          usuario.nome
+        } possui as habilidades: ${usuario.habilidades.join(", ")}`;
+        console.log(resposta);
+      }
+    </script>
+  </body>
+</html>
