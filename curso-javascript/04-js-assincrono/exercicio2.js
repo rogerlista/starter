@@ -1,8 +1,11 @@
 const inputElement = document.querySelector("input[name=user]");
 const buttonElement = document.querySelector("button");
 const listElement = document.querySelector("ul");
+const erroElement = document.querySelector(".erro");
 
 const buscaRepo = function(user) {
+  erroElement.innerHTML = "";
+  listElement.innerHTML = "Carregando...";
   return new Promise(function(resolve, reject) {
     const xhr = new XMLHttpRequest();
 
@@ -14,7 +17,11 @@ const buscaRepo = function(user) {
         if (xhr.status === 200) {
           resolve(JSON.parse(xhr.responseText));
         } else {
-          reject("Não foi possível fazer a requisição.");
+          if (xhr.status === 404) {
+            reject("Usuário não encontrado!");
+          } else {
+            reject("Não foi possível fazer a requisição.");
+          }
         }
       }
     };
@@ -26,6 +33,8 @@ const busca = function() {
 
   buscaRepo(user)
     .then(function(repos) {
+      listElement.innerHTML = "";
+
       for (let repo of repos) {
         const repoElement = document.createElement("li");
         const textElement = document.createTextNode(repo.name);
@@ -35,6 +44,8 @@ const busca = function() {
       }
     })
     .catch(function(error) {
+      listElement.innerHTML = "";
+      erroElement.innerHTML = error;
       console.log(error);
     });
 };
