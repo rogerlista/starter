@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Operações matemáticas em Javascript</title>
+
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <script>
+      const x = 11;
+      const y = 5;
+      const z = "10";
+
+      const soma = x + y;
+      const subtracao = x - y;
+      const multiplicacao = x * y;
+      const divisao = x / y;
+      const modulo = x % y;
+
+      console.log("soma", soma); // 16
+      console.log("subtração", subtracao); // 6
+      console.log("multiplicação", multiplicacao); // 55
+      console.log("divisão", divisao); // 2.2
+      console.log("módulo", modulo); // 1
+
+      const concatenacao = z + y;
+      console.log("concatenação", concatenacao); // 105
+
+      let somando = 3;
+      let subtraindo = 3;
+      let multiplicando = 3;
+      let dividindo = 3;
+      let resto = 3;
+
+      somando += y; // somando = somando + y                    // 8
+      subtraindo -= y; // subtraindo = subtraindo - y           // -2
+      multiplicando *= y; // multiplicando = multiplicando * y  // 15
+      dividindo /= y; // dividindo = dividindo / y              // 0.6
+      resto %= y; // resto = resto % y                          // 3
+
+      console.log("somando", somando);
+      console.log("subtraindo", subtraindo);
+      console.log("multiplicando", multiplicando);
+      console.log("dividindo", dividindo);
+      console.log("resto", resto);
+    </script>
+  </body>
+</html>
