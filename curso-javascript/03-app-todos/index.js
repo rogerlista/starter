@@ -9,6 +9,7 @@ const todos = [
 ];
 
 function renderTodos() {
+  listElement.innerHTML = "";
   for (todo of todos) {
     const todoElement = document.createElement("li");
     const textElement = document.createTextNode(todo);
@@ -19,3 +20,15 @@ function renderTodos() {
 }
 
 renderTodos();
+
+function addTodo() {
+  const todoText = inputElement.value;
+
+  todos.push(todoText);
+  inputElement.value = "";
+  inputElement.focus();
+
+  renderTodos();
+}
+
+buttonElement.onclick = addTodo;
