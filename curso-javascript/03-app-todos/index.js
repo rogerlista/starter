@@ -2,11 +2,7 @@ const listElement = document.querySelector("ul");
 const inputElement = document.querySelector("input");
 const buttonElement = document.querySelector("button");
 
-const todos = [
-  "Fazer café",
-  "Estudar Javascript",
-  "Entrar na comunidade da Rocketseat"
-];
+const todos = JSON.parse(localStorage.getItem("list-todos")) || [];
 
 function renderTodos() {
   listElement.innerHTML = "";
@@ -40,6 +36,7 @@ function addTodo() {
   inputElement.focus();
 
   renderTodos();
+  saveLocalStorage();
 }
 
 buttonElement.onclick = addTodo;
@@ -47,4 +44,9 @@ buttonElement.onclick = addTodo;
 function removeTodo(pos) {
   todos.splice(pos, 1);
   renderTodos();
+  saveLocalStorage();
+}
+
+function saveLocalStorage() {
+  localStorage.setItem("list-todos", JSON.stringify(todos));
 }
