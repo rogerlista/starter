@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Trabalhando com a DOM com Javascript</title>
+
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <input type="text" name="nome" />
+    <button class="botao">Adicionar</button>
+
+    <script>
+      const inputElement = document.querySelector("input[name=nome]");
+      const buttonElement = document.querySelector("button.botao");
+
+      buttonElement.onclick = function() {
+        const conteudoInput = inputElement.value;
+        alert(conteudoInput);
+      };
+    </script>
+  </body>
+</html>
