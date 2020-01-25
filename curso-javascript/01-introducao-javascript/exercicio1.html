@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exercício 01 Javascript</title>
+
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <script>
+      const endereco = {
+        rua: "Rua dos Pinheiros",
+        numero: 1293,
+        bairro: "Centro",
+        cidade: "São Paulo",
+        uf: "SP"
+      };
+
+      const resposta = `O usuário mora em ${endereco.cidade} / ${endereco.uf}, no bairro ${endereco.bairro}, na rua "${endereco.rua}" no nº ${endereco.numero}.`;
+
+      console.log(resposta); // O usuário mora em São Paulo / SP, no bairro Centro, na rua "Rua dos Pinheiros" no nº 1293.
+    </script>
+  </body>
+</html>
