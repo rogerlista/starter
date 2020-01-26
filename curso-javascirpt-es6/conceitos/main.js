@@ -36,3 +36,11 @@ document.querySelector('button').onclick = function() {
 }
 
 todo.mostrarUsuario()
+
+/*
+  Testando o webpack
+*/
+
+import { somando } from './funcoes'
+
+console.log(somando(1, 3)) // 4
