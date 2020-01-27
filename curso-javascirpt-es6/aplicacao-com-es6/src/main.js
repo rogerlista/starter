@@ -1,57 +1,28 @@
-const delay = () => new Promise(resolve => setTimeout(resolve, 1000))
+class App {
+  constructor() {
+    this.repositories = []
 
-async function umPorSegundo() {
-  await delay()
-  console.log('1s')
+    this.formElement = document.querySelector('#repo-form')
 
-  await delay()
-  console.log('2s')
+    this.registerHandle()
+  }
 
-  await delay()
-  console.log('3s')
-}
+  registerHandle() {
+    this.formElement.onsubmit = event => this.addRepository(event)
+  }
 
-umPorSegundo()
+  addRepository(event) {
+    event.preventDefault()
 
-import axios from 'axios'
+    this.repositories.push({
+      name: 'rocketseat.com.br',
+      description: 'Tire a sua ideia do papel e dê vida à sua startup.',
+      avatar_url: 'https://avatars0.githubusercontent.com/u/28929274?s=200&v=4',
+      html_url: 'http://rocketseat.com.br'
+    })
 
-async function getUserFromGithub(user) {
-  try {
-    const response = await axios.get(`https://api.github.com/users/${user}`)
-
-    console.log(response.data)
-  } catch (erro) {
-    console.warn('Usuário não existe')
+    console.log(this.repositories)
   }
 }
 
-getUserFromGithub('rogerlista')
-getUserFromGithub('rogerlista3434')
-
-class Github {
-  static async getRepositories(repo) {
-    try {
-      const response = await axios.get(`https://api.github.com/repos/${repo}`)
-
-      console.log(response.data)
-    } catch (erro) {
-      console.warn('Repositório não existe')
-    }
-  }
-}
-
-Github.getRepositories('rogerlista/eventex')
-Github.getRepositories('rogerlista/djksadldkfj')
-
-const buscaUsuario = async usuario => {
-  try {
-    const response = await axios.get(`https://api.github.com/users/${usuario}`)
-
-    console.log(response.data)
-  } catch (erro) {
-    console.warn('Usuário não encontrado...')
-  }
-}
-
-buscaUsuario('diego3g')
-buscaUsuario('djfkdjfdkfl')
+new App()
